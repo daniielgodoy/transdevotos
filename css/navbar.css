@@ -1,0 +1,251 @@
+/* Estilização da Navbar */
+.navbar {
+    background-color: #132333;  /* Cor atualizada para #132333 */
+    color: #fff;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Ícone do menu (hambúrguer) */
+.menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Sidebar (menu lateral) */
+.sidebar {
+    position: fixed;
+    left: -250px;  /* Começa fora da tela */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #132333;  /* Cor atualizada para #132333 */
+    color: #fff;
+    padding-top: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+/* Itens do menu */
+.sidebar .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .menu li {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+    text-align: center;
+}
+
+.sidebar .menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.sidebar .menu li a:hover {
+    color: #f0a500;
+}
+
+/* Ativar menu (visível) */
+.sidebar.active {
+    transform: translateX(250px);  /* Menu desliza para a direita */
+}
+
+/* Estilização da tela quando o menu está aberto */
+body.active {
+    background-color: rgba(0, 0, 0, 0.5);  /* Fundo escurecido para destacar o menu */
+    transition: background-color 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+    /* Torna o ícone de menu visível em telas pequenas */
+    .menu-icon {
+        display: block;
+    }
+
+    /* O menu permanece oculto em telas pequenas até ser ativado */
+    .sidebar {
+        display: none; /* Oculte o menu no mobile até a ativação */
+    }
+
+    .sidebar.active {
+        display: block; /* Exibe o menu no mobile */
+        transform: translateX(0); /* Animação de deslizamento */
+    }
+}
+
+/* Estilização dos Botões */
+button {
+    background-color: #f0a500;  /* Cor de fundo amarela */
+    color: #132333;  /* Cor do texto (combina com o fundo escuro) */
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;  /* Bordas arredondadas */
+    cursor: pointer;
+    transition: all 0.3s ease;  /* Transição suave para todos os efeitos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  /* Sombra suave */
+}
+
+/* Efeito de hover nos botões */
+button:hover {
+    background-color: #e89f00;  /* Cor de fundo mais escura quando o botão for hover */
+    transform: translateY(-3px);  /* Elevação leve */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);  /* Sombra mais forte no hover */
+}
+
+/* Efeito de foco nos botões (quando clicados ou focados) */
+button:focus {
+    outline: none;  /* Retira o contorno padrão do navegador */
+    box-shadow: 0px 0px 5px rgba(255, 165, 0, 0.7);  /* Sombra laranja para destacar o foco */
+}
+
+/* Botão com borda ao ser desativado ou se o formulário não for preenchido corretamente */
+button:disabled {
+    background-color: #ddd;  /* Cor de fundo mais clara */
+    color: #888;  /* Cor do texto mais suave */
+    cursor: not-allowed;  /* Cursor de bloqueio */
+    box-shadow: none;  /* Remove a sombra */
+}
+
+/* Botões dentro do menu lateral */
+.sidebar .menu li a {
+    display: block;
+    background-color: #f0a500;
+    color: #132333;
+    font-size: 1.1rem;
+    padding: 15px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .menu li a:hover {
+    background-color: #e89f00;  /* Fundo do link quando em hover */
+    color: #fff;  /* Texto branco ao passar o mouse */
+    transform: translateY(-3px);  /* Elevação suave */
+}
+
+/* Botão dentro do formulário */
+form button {
+    background-color: #132333;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form button:hover {
+    background-color: #0f1f25;  /* Cor escura no hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Tela escurecida quando o modal está ativo */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro e semitransparente */
+    z-index: 999; /* Coloca a camada sobre o conteúdo */
+    display: none; /* Inicialmente invisível */
+}
+
+/* Estilização do Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000; /* Modal sobre a camada escura */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o modal */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%; /* Ajuste a largura conforme necessário */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao redor */
+}
+
+.modal-content {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.close {
+    color: #aaa;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+}
+
+/* Estilos para os itens da lista de usuários */
+.modal-content p {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f9f9f9; /* Fundo suave */
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave ao redor */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content p:hover {
+    background-color: #e0e0e0; /* Cor de fundo mais escura ao passar o mouse */
+    transform: translateY(-3px); /* Elevação leve */
+}
+/* Overlay para escurecer o fundo */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro e semitransparente */
+    z-index: 999; /* Garantir que fique sobre o conteúdo */
+    display: none; /* Inicialmente invisível */
+}
+
+/* Estilização do Modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000; /* Modal sobre a camada escura */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o modal */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%; /* Ajuste a largura conforme necessário */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao redor */
+}
